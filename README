@@ -1,0 +1,20 @@
+BufferView is a wrapper around the DataView class from the Typed Arrays
+specification: https://www.khronos.org/registry/typedarray/specs/1.0/
+
+DataView has a minimal and awkward API. BufferView improves the API by
+keeping track of the current offset and allowing the specification of a
+default endianness.  BufferView also adds UTF-8 encoding and decoding
+support.
+
+I've been thinking about ways to read and write multiple values at a
+time, and am considering implementing methods like Python's (and Perl's)
+pack() and unpack(). 
+
+If I get more ambitious, I may try to make BufferView work with binary
+strings or with Node's Buffer class.
+
+Right now this code is mostly untested.  But see the example in the test
+directory: it lists the contents of a zip file.
+
+Note that Firefox 4 does not support DataView.  But you can emulate it
+with https://github.com/davidflanagan/DataView.js
